@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+void linkedListTraversal(struct Node *ptr) {
+    while (ptr != NULL) {  // Corrected the syntax by removing the space in '!='
+        printf("Element: %d\n", ptr->data);  // Added a newline for better readability
+        ptr = ptr->next;
+    }
+}
+
+int main() {  // Changed 'void main()' to 'int main()' for standard compliance
+    struct Node *head;
+    struct Node *second;
+    struct Node *third;
+
+    // Allocate memory for nodes in the linked list in Heap
+    head = (struct Node *)malloc(sizeof(struct Node));
+    second = (struct Node *)malloc(sizeof(struct Node));
+    third = (struct Node *)malloc(sizeof(struct Node));
+
+    // Assign data and link the nodes
+    head->data = 7;
+    head->next = second;
+
+    second->data = 11;
+    second->next = third;
+
+    third->data = 55;
+    third->next = NULL;
+
+    // Function call to traverse the linked list
+    linkedListTraversal(head);
+
+    return 0;  // Return 0 to indicate successful execution
+}

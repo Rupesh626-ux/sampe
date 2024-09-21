@@ -1,0 +1,57 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+int main(){
+    vector<int> arr={1,1,1,1,1,2,2,
+    2,5,3,3,3,3,3,3,4,4,4,4};
+    unordered_map<int ,int> m;
+    for(int i:arr){
+        cout<<i<<" ";
+        m[i]++;
+    }
+    int number=0;
+    int x=0;
+    cout<<endl;
+    for(auto& a: m){
+        if(a.second>=number){
+            number=a.second;
+            x=a.first;
+        }
+        else{
+//create maping of these element to make them in increasing order.
+            cout<<a.first<<" : "<<a.second<<endl;
+        }
+    }
+    cout<<endl;
+    cout<<x<<" repeats "<<number<<" times."<<endl;
+}
+
+
+
+
+
+
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+int reverse(int x, int num){
+    int y=x/10;
+    int num=(num*10)+y;
+    if((x/10)==0){
+        return num;
+    }
+    reverse(y,num);
+}
+int main(){
+    int x;
+    int rev=0;
+    cin>>x;
+    cout<<x/10<<endl;
+    cout<<x%10<<endl;
+    int ans=reverse(x,num);
+    cout<<ans<<endl;
+}

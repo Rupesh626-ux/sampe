@@ -1,0 +1,2 @@
+add else, cout.
+play with visited

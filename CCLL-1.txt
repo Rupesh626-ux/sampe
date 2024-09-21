@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+// Define a Node structure
+struct Node {
+    int data;
+    Node* next;
+};
+
+// Function to traverse and print the linked list
+void linkedListTraversal(Node* ptr) {
+    while (ptr != NULL) {
+        cout << "Element: " << ptr->data << " ";
+        ptr = ptr->next;
+    }
+    cout<<"Done1"<<endl;
+}
+
+// Function to create a linked list of 'n' nodes
+Node* createLinkedList(int n) {
+    
+    Node* head = new Node();
+    Node* current = head;
+
+    for (int i = 0; i < n; i++) {
+        current->data = i ; 
+        cout<<current->data<<endl;
+        cout<<endl;
+        
+        if (i == n - 1) {
+            current->next = nullptr; 
+        } else {
+            current->next = new Node();  
+            current = current->next;
+        }
+    }
+    cout<<"Real traverse karo"<<endl;
+    return head;
+}
+
+int main() {
+    Node* head = createLinkedList(5);
+    linkedListTraversal(head);
+    cout<<"Fdone"<<endl;
+}
